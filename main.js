@@ -72,7 +72,7 @@ for(let baseLayerElement of baseLayerElements){
 
 const district = new TileLayer({
   source: new TileWMS({
-  url: 'http://localhost:8080/geoserver/Bulgaria/wms',
+  url: 'https://geoserver.ssp-bg.com/geoserver/Bulgaria/wms',
   params:{'VERSION':'1.1.0', tiled: true, 'LAYERS':'Bulgaria:oblasti'},
   serverType: 'geoserver',
   visible: true
@@ -81,7 +81,7 @@ const district = new TileLayer({
 
 const mun = new TileLayer({
   source: new TileWMS ({
-  url: 'http://localhost:8080/geoserver/Bulgaria/wms',
+  url: 'https://geoserver.ssp-bg.com/geoserver/Bulgaria/wms',
   params:{'VERSION':'1.1.0', tiled: true, 'LAYERS':'Bulgaria:munisipalities'},
   serverType: 'geoserver',
   visible: true
@@ -90,7 +90,7 @@ const mun = new TileLayer({
 
 const rivers = new TileLayer({
   source: new TileWMS ({
-  url: 'http://localhost:8080/geoserver/Bulgaria/wms',
+  url: 'https://geoserver.ssp-bg.com/geoserver/Bulgaria/wms',
   params:{'VERSION':'1.1.0', tiled: true, 'LAYERS':'Bulgaria:reki'},
   serverType: 'geoserver',
   visible: true
@@ -99,7 +99,7 @@ const rivers = new TileLayer({
 
 const settlments = new TileLayer({
   source: new TileWMS ({
-  url: 'http://localhost:8080/geoserver/Bulgaria/wms',
+  url: 'https://geoserver.ssp-bg.com/geoserver/Bulgaria/wms',
   params:{'VERSION':'1.1.0', tiled: true, 'LAYERS':'Bulgaria:settlement'},
   serverType: 'geoserver',
   visible: true
@@ -166,7 +166,7 @@ projectionSelect.addEventListener('change', function(event){
 
 document.getElementById('download0').addEventListener('click', function () {
 
-  const url = "http://localhost:8080/geoserver/Bulgaria/ows" +
+  const url = "https://geoserver.ssp-bg.com/geoserver/Bulgaria/ows" +
               "?service=WFS&version=1.0.0&request=GetFeature" + 
               "&typeName=Bulgaria%3AMunisipalities&outputFormat=application%2Fjson";
 
