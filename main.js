@@ -72,8 +72,8 @@ for(let baseLayerElement of baseLayerElements){
 
 const district = new TileLayer({
   source: new TileWMS({
-  url: 'https://geoserver.ssp-bg.com/geoserver/Bulgaria/wms',
-  params:{'VERSION':'1.1.0', tiled: true, 'LAYERS':'Bulgaria:oblasti'},
+  url: 'https://geoserver.ssp-bg.com/geoserver/BGDATA/wms',
+  params:{'VERSION':'1.1.0', tiled: true, 'LAYERS':'BGDATA:Oblasti_DB'},
   serverType: 'geoserver',
   visible: true
   })
@@ -81,8 +81,8 @@ const district = new TileLayer({
 
 const mun = new TileLayer({
   source: new TileWMS ({
-  url: 'https://geoserver.ssp-bg.com/geoserver/Bulgaria/wms',
-  params:{'VERSION':'1.1.0', tiled: true, 'LAYERS':'Bulgaria:munisipalities'},
+  url: 'https://geoserver.ssp-bg.com/geoserver/BGDATA/wms',
+  params:{'VERSION':'1.1.0', tiled: true, 'LAYERS':'BGDATA:Obshtini_DB'},
   serverType: 'geoserver',
   visible: true
   })
@@ -90,8 +90,8 @@ const mun = new TileLayer({
 
 const rivers = new TileLayer({
   source: new TileWMS ({
-  url: 'https://geoserver.ssp-bg.com/geoserver/Bulgaria/wms',
-  params:{'VERSION':'1.1.0', tiled: true, 'LAYERS':'Bulgaria:reki'},
+  url: 'https://geoserver.ssp-bg.com/geoserver/BGDATA/wms',
+  params:{'VERSION':'1.1.0', tiled: true, 'LAYERS':'BGDATA:Reki_DB'},
   serverType: 'geoserver',
   visible: true
   })
@@ -99,8 +99,8 @@ const rivers = new TileLayer({
 
 const settlments = new TileLayer({
   source: new TileWMS ({
-  url: 'https://geoserver.ssp-bg.com/geoserver/Bulgaria/wms',
-  params:{'VERSION':'1.1.0', tiled: true, 'LAYERS':'Bulgaria:settlement'},
+  url: 'https://geoserver.ssp-bg.com/geoserver/BGDATA/wms',
+  params:{'VERSION':'1.1.0', tiled: true, 'LAYERS':'BGDATA:Cities_DB'},
   serverType: 'geoserver',
   visible: true
   })
@@ -166,9 +166,9 @@ projectionSelect.addEventListener('change', function(event){
 
 document.getElementById('download0').addEventListener('click', function () {
 
-  const url = "https://geoserver.ssp-bg.com/geoserver/Bulgaria/ows" +
+  const url = "https://geoserver.ssp-bg.com/geoserver/BGDATA/ows" +
               "?service=WFS&version=1.0.0&request=GetFeature" + 
-              "&typeName=Bulgaria%3AMunisipalities&outputFormat=application%2Fjson";
+              "&typeName=BGDATA%3AObshtini_DB&outputFormat=application%2Fjson";
 
   fetch(url)
     .then(response => response.blob())
