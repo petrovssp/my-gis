@@ -13,6 +13,7 @@ import proj4 from 'proj4';
 import {register} from 'ol/proj/proj4';
 import VectorSource from 'ol/source/Vector.js';
 import GeoJSON from 'ol/format/GeoJSON.js';
+import { WMS_URL, WFS_URL } from './config/geoserver.js'
 
 proj4.defs("EPSG:7801","+proj=lcc +lat_0=42.6678756833333 +lon_0=25.5 +lat_1=42 +lat_2=43.3333333333333 +x_0=500000 +y_0=4725824.3591 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs +type=crs");
 register(proj4);
@@ -72,7 +73,7 @@ for(let baseLayerElement of baseLayerElements){
 
 const district = new TileLayer({
   source: new TileWMS({
-  url: 'https://geoserver.ssp-bg.com/geoserver/BGDATA/wms',
+  url: WMS_URL,
   params:{'VERSION':'1.1.0', tiled: true, 'LAYERS':'BGDATA:Oblasti_DB'},
   serverType: 'geoserver',
   visible: true
@@ -81,7 +82,7 @@ const district = new TileLayer({
 
 const mun = new TileLayer({
   source: new TileWMS ({
-  url: 'https://geoserver.ssp-bg.com/geoserver/BGDATA/wms',
+  url: WMS_URL,
   params:{'VERSION':'1.1.0', tiled: true, 'LAYERS':'BGDATA:Obshtini_DB'},
   serverType: 'geoserver',
   visible: true
@@ -90,7 +91,7 @@ const mun = new TileLayer({
 
 const rivers = new TileLayer({
   source: new TileWMS ({
-  url: 'https://geoserver.ssp-bg.com/geoserver/BGDATA/wms',
+  url: WMS_URL,
   params:{'VERSION':'1.1.0', tiled: true, 'LAYERS':'BGDATA:Reki_DB'},
   serverType: 'geoserver',
   visible: true
@@ -99,7 +100,7 @@ const rivers = new TileLayer({
 
 const settlments = new TileLayer({
   source: new TileWMS ({
-  url: 'https://geoserver.ssp-bg.com/geoserver/BGDATA/wms',
+  url: WMS_URL,
   params:{'VERSION':'1.1.0', tiled: true, 'LAYERS':'BGDATA:Cities_DB'},
   serverType: 'geoserver',
   visible: true
@@ -166,7 +167,7 @@ projectionSelect.addEventListener('change', function(event){
 
 document.getElementById('download0').addEventListener('click', function () {
 
-  const url = "https://geoserver.ssp-bg.com/geoserver/BGDATA/ows" +
+  const url = WFS_URL +
               "?service=WFS&version=1.0.0&request=GetFeature" + 
               "&typeName=BGDATA%3AObshtini_DB&outputFormat=application%2Fjson";
 
