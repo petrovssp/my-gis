@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Using OpenLayers with Vite</title>
+  </head>
+  <body>
+    <div class="grid-container">
+
+        <div class="header">
+          <img src="/images/Capture.PNG" alt="" style="width: 60px; height: 60px; vertical-align: middle;">
+          <span style="vertical-align: middle;">Курсов проект на Стефан Петров, България</span>
+        </div>
+        
+        <div class="left">
+
+          <div class="basemaps">
+              <h3 class="title">Базови карти</h3>
+              <input type="radio" id="OSM" name="basepayerbutton" value="OSM" checked>
+              <lable for="OSM">Open Street Map</lable>
+              <br>
+              <input type="radio" id="googleSat" name="basepayerbutton" value="googleSat">
+              <label for="googleSat">Google Satellite</lable>
+          </div>
+
+        <div class="mymaps">
+          <h3 class="title">Потребителски слоеве</h3>
+          <input type="checkbox" id="0" name="Mun" value="Mun" checked>
+          <label for="Mun">Общини <button id="download0"><img src="/images/download.png" style="vertical-align: middle;"></button></label><br>
+          <input type="checkbox" id="1" name="rivers" value="rivers" checked>
+          <label for="rivers">Реки</label><br>
+          <input type="checkbox" id="2" name="Distr" value="Distr" checked>
+          <label for="Distr">Областна граница</label><br>
+          <input type="checkbox" id="3" name="admcent" value="admcent" checked>
+          <label for="admcent">Административни центрове</label><br>
+        </div>
+
+
+
+        </div>
+
+        <div class="right">
+           <div id="map"></div>
+           <form>
+            <select id="Myprojection">
+              <option value="EPSG:7801" selected>BGS2005 CCS</option>
+              <option value="EPSG:7800">BGS2005 UTM35</option>
+            </select>
+           </form>
+        </div>
+
+    </div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
+
