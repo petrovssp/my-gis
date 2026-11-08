@@ -110,7 +110,7 @@ const settlments = new TileLayer({
 
 //Групиране на основните слоеве в група
 const layersGroup = new LayerGroup ({
-  layers: [mun, rivers, district, settlments]
+  layers: [district, mun, rivers, settlments]
 })
 
 map.addLayer(layersGroup);
